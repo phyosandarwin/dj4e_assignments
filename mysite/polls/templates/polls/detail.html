@@ -7,7 +7,7 @@
 
     -->
     <form action="{% url 'polls:vote' question.id %}" method="post">
-        {% csrf_token %} <!--Without this, the POST data will be blocked by server-->
+        {% csrf_token %} <!--Without this, the POST data will be blocked by server (403 error)-->
         <fieldset>
             <legend><h1>{{ question.question_text }}</h1></legend>
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
