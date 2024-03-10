@@ -1,0 +1,17 @@
+<html>
+    {% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+        <!--
+            Since name argument already specified in polls/urls.py, dont need to be specific with href path here
+            i.e. they will search the specific url pattern given the '[name argument]' which is behind the "url" keyword here
+
+            remember to also point at the namespaced detail view (i.e. app name)
+        -->
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</html>
